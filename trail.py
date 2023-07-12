@@ -20,7 +20,7 @@ def instructor_embeddings():
     return instructor_embed
 
 def ori_data(_file):
-    db = FAISS.load_local(file, embed)
+    db = FAISS.load_local(f"/{file.name}", embed)
     st.success('Database succussfully created!', icon="✅")
     return db
 
