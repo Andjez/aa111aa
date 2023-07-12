@@ -10,6 +10,7 @@
 #-------------------------------------------------------------------------------
 import streamlit as st
 from langchain.vectorstores import FAISS
+import tempfile
 #from InstructorEmbedding import INSTRUCTOR
 #from langchain.embeddings import HuggingFaceInstructEmbeddings
 
