@@ -11,6 +11,7 @@
 import streamlit as st
 from langchain.vectorstores import FAISS
 import tempfile
+from io import StringIO
 #from InstructorEmbedding import INSTRUCTOR
 #from langchain.embeddings import HuggingFaceInstructEmbeddings
 
@@ -31,8 +32,9 @@ file = st.file_uploader("Choose a file")
 if file is not None:
     # To read file as bytes:
     #3newdb = ori_data(file)
+    bytes_data = uploaded_file.getvalue()
     with tempfile.TemporaryFile() as fp:
-        fp.write(file)
+        fp.write(bytes_data)
     #fp.write(file)
     fp.read()
     st.write(fp)
