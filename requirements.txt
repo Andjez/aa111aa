@@ -1,5 +1,5 @@
 langchain==0.0.170
 streamlit
-InstructorEmbedding
-sentence-transformers
-faiss-cpu
+#InstructorEmbedding
+#sentence-transformers
+#faiss-cpu
