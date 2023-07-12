@@ -35,9 +35,9 @@ if file is not None:
     bytes_data = file.getvalue()
     with tempfile.TemporaryFile() as fp:
         fp.write(bytes_data)
-    #fp.write(file)
-    fp.read()
-    st.write(fp)
+        #fp.write(file)
+        fp.read()
+        st.write(fp)
 
 
 #if newdb:
