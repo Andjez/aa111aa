@@ -33,8 +33,9 @@ if file is not None:
     # To read file as bytes:
     #3newdb = ori_data(file)
     bytes_data = file.getvalue()
+    stringio = StringIO(file.getvalue().decode("utf-8"))
     with tempfile.TemporaryFile() as fp:
-        fp.write(bytes_data)
+        fp.write(stringio)
         #fp.write(file)
         fp.read()
         newdb = ori_data(fp)
