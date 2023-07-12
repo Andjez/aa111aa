@@ -30,8 +30,9 @@ file = st.file_uploader("Choose a file")
 if file is not None:
     # To read file as bytes:
     #3newdb = ori_data(file)
-    fp = tempfile.TemporaryFile()
-    fp.write(file)
+    with tempfile.TemporaryFile() as fp:
+        fp.write(file)
+    #fp.write(file)
     fp.read()
     st.write(fp)
 
