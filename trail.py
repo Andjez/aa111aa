@@ -58,8 +58,13 @@ def instructor_embeddings():
     instructor_embed = HuggingFaceInstructEmbeddings(model_name="hkunlp/instructor-base", model_kwargs={"device": "cpu"})
     return instructor_embed
 
+import tempfile
+
 def ori_data(file):
-    db = FAISS.load_local(file, embed)
+    with tempfile.NamedTemporaryFile(delete=False) as temp:
+        temp.write(file.read())
+        temp_path = temp.name
+    db = FAISS.load_local(temp_path, embed)
     st.success('Database succussfully created!', icon="✅")
     return db
 
