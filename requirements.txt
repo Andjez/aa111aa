@@ -3,3 +3,4 @@ streamlit
 InstructorEmbedding
 sentence-transformers
 faiss-cpu
+pytest-shutil
