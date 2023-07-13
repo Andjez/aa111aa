@@ -60,12 +60,16 @@ def instructor_embeddings():
 
 import tempfile
 
+import os
+import shutil
+
 def ori_data(file):
-    with tempfile.NamedTemporaryFile(delete=False) as temp:
-        temp.write(file.read())
-        temp_path = temp.name
-    db = FAISS.load_local(temp_path, embed)
-    st.success('Database succussfully created!', icon="✅")
+    with tempfile.TemporaryDirectory() as temp_dir:
+        temp_path = os.path.join(temp_dir, 'index.faiss')
+        with open(temp_path, 'wb') as f:
+            f.write(file.read())
+        db = FAISS.load_local(temp_dir, embed)
+        st.success('Database succussfully created!', icon="✅")
     return db
 
 embed = instructor_embeddings()
