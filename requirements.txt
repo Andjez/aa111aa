@@ -4,3 +4,4 @@ InstructorEmbedding
 sentence-transformers
 faiss-cpu
 pytest-shutil
+zipfile36
